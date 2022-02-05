@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  },
+  "name": "hw_3",
+  "description": "",
+  "version": "1.0.0",
+  "main": "script.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acostaa1/dealers_choice_js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acostaa1/dealers_choice_js/issues"
+  },
+  "homepage": "https://github.com/acostaa1/dealers_choice_js#readme"
+}
