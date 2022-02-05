@@ -1,11 +1,18 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 
 
 const port = process.env.PORT || 3000; 
 app.listen(port, () => console.log(`listening on port ${port}`));
 
-app.get('styles.css', (req, res, next) => {res.sendFile(path.join(__dirname, 'public', 'styles.css'))});
+app.use('styles.css', (req, res, next) => {res.sendFile(path.join(__dirname, 'public', 'styles.css'))});
+
+const poker = {
+    founded: "1829",
+    winningHands: "10",
+    numPlayers: "2-8"
+};
 
 app.get('/', (req, res, next) => {
     res.send(`
@@ -33,6 +40,7 @@ app.get('/', (req, res, next) => {
 });
 
 app.get('/about', (req, res, next) => {
+    
     res.send(`
     <html>
     <head>
@@ -49,6 +57,7 @@ app.get('/about', (req, res, next) => {
            While the earliest known form of the game was played with just 20 cards, today it is usually played with a standard deck, although countries where short packs are common, 
            may play with 32, 40 or 48 cards. Thus poker games vary in deck configuration, the number of cards in play, the number dealt face up or face down, and the number shared by all players,
            but all have rules that involve one or more rounds of betting. -Wiki </p>
+           It was founded in ${poker.founded}.
     </body>
     </html>`);
     res.end();
@@ -78,7 +87,9 @@ app.get('/rules', (req, res, next) => {
         distinguishing it from other vying games and from other games that use poker hand rankings.
         At the end of the last betting round, if more than one player remains, there is a showdown, in which the players reveal their previously hidden cards and evaluate their hands. 
         The player with the best hand according to the poker variant being played wins the pot. A poker hand comprises five cards; in variants where a player has more than five cards available to them, 
-        only the best five-card combination counts. There are 10 different kinds of poker hands, such as straight flush and four of a kind.- Wiki</p>
+        only the best five-card combination counts. There are ${poker.winningHands} different kinds of poker hands, such as straight flush and four of a kind.- Wiki</p>
+
+        You must have ${poker.numPlayers} people to play. 
     </body>
     </html>`);
     res.end();
@@ -97,6 +108,7 @@ app.get('/hands', (req, res, next) => {
         </nav>
         <style> </style>
         <h1>These Are The Hand Ranks! </h1>
+        <p>There are ${poker.winningHands} winning hands: </p>
         <img src= "https://www.cardschat.com/pkimg/hand-nicknames/poker-hand-rankings-mobile.png">
     </body>
     </html>`);
