@@ -1,8 +1,12 @@
 nav {
-    text-align: center;
+   
+    display: flex;
+    justify-content: space-around;
 }
+
 
 h1 {
     font-family: 'Courier New', Courier, monospace;
     color: blue;
+    
 }
